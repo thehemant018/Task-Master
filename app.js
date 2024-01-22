@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express=require('express');
 const connectToMongo=require('./db.js');
+const bcrypt = require('bcryptjs');
 var cors=require('cors');
 connectToMongo();
 const app=express();
