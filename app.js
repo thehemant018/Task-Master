@@ -12,8 +12,8 @@ let port=process.env.PORT || 5694;
 
 app.use('/api/auth',require('./routes/auth.js'));
 app.use('/api/task',require('./routes/task.js'));
+app.use(express.static(path.resolve(__dirname, "frontend", "build")));
 app.get("/", (req, res) => {
-    app.use(express.static(path.resolve(__dirname, "frontend", "build")));
     res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
 });
 
