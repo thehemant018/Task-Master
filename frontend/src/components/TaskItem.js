@@ -8,18 +8,19 @@ const TaskItem = (props) => {
     const c = new Date();
     const d = new Date(task.deadline.substring(0,10));
     let result;
-    if(c<d){
-        result="Ontime";
+    if(task.status==='Completed'){
+        result="Ontime"; 
+    }else if(c<d ){
+        result="Ontime"; 
     }
     else{
         result="Overdue";
-        document.getElementById('card').style.backgroundColor='#FF474C';
     }
 
     return (
         <div className='col-md-3'>
             <div className="card my-3" >
-                <div className="card-body" id="card">
+                <div className="card-body" id="card1">
                     <h5 className="card-title"> {task.title}</h5>
                     <p className="card-text"> {task.description} </p>
                     <p className="card-text"> {task.employee} </p>

@@ -19,18 +19,18 @@ const Home = (props) => {
 
   const ref = useRef(null);
   const refClose = useRef(null);
-  const [task, setTask] = useState({ id: "", etitle: "", edescription: "", eemployee: "", eprojectStart: "", edeadline: "", status: "" });
+  const [task, setTask] = useState({ id: "", etitle: "", edescription: "", eemployee: "", eprojectStart: "", edeadline: "", estatus: "" });
 
   const updateTask = (currentTask) => {
     ref.current.click();
-    setTask({ id: currentTask._id, etitle: currentTask.title, edescription: currentTask.description, eemployee: currentTask.employee, eprojectStart: currentTask.projectStart, edeadline: currentTask.deadline, status: currentTask.status });
+    setTask({ id: currentTask._id, etitle: currentTask.title, edescription: currentTask.description, eemployee: currentTask.employee, eprojectStart: currentTask.projectStart, edeadline: currentTask.deadline, estatus: currentTask.status });
   }
 
   const handleClick = (e) => {
-    editTask(task.id, task.etitle, task.edescription, task.eemployee, task.eprojectStart, task.edeadline, task.status);
+    editTask(task.id, task.etitle, task.edescription, task.eemployee, task.eprojectStart, task.edeadline, task.estatus);
     refClose.current.click();
     e.preventDefault();
-    props.showAlert('Note updated successfuly', 'success');
+    props.showAlert('Task updated successfuly', 'success');
     navigate('/');
   }
 
@@ -88,7 +88,7 @@ const Home = (props) => {
                     <option value="In Progress" >In Progress</option>
                     <option value="Completed" >Completed</option>
                   </select>
-                  {work.estatus = projectStatus}
+                  {task.estatus = projectStatus}
                 </div>
 
               </form>
